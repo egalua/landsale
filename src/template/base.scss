@@ -1,0 +1,68 @@
+.wrapper{
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    overflow: hidden;
+}
+.content-box{
+    // min-height: 100vh;
+    background: #fff;
+}
+// проверка браузера
+.content-box{
+    display: none;
+}
+.bad-browser{
+    display: block;
+}
+@supports(  (scroll-behavior: smooth) and 
+            (max-width: 1440px) and 
+            (min-width: 320px) and 
+            (display: flex) and
+            (display: inline-flex) and
+            (justify-content: center) and
+            (flex-wrap: wrap) and
+            (text-shadow: 0.008px 0px 0px rgba(255, 255, 255, 0.85)) and
+            (flex-direction: column) and 
+            (justify-content: flex-start) and
+            (font-size: calc(100vw * (35 / 673) - (10020px / 673))) and
+            (max-height: 52px) and
+            (min-height: 42px) and
+            (align-items: center) and
+            (flex-grow: 1) and
+            (background: linear-gradient(to right, transparent, white)) and
+            (display: inline-grid) and 
+            (display: grid) and 
+            (grid-template-rows: auto auto auto) and 
+            (grid-auto-flow: column) and
+            (grid-gap: calc( 100vw * (5 / 1440))) and 
+            (transition: transform 0.5s) and 
+            (fill: #a1a2a5) and 
+            (transform: scale(1.065)) and 
+            (transform: rotate(180deg)) and 
+            (transform: translateX(0px)) and 
+            (pointer-events: none) and 
+            (transform-origin: 50% -10px) and 
+            (animation-name: fadeG) and 
+            (animation-duration: 0.36s) and 
+            (animation-iteration-count: infinite) and 
+            (animation-direction: normal) and 
+            (animation-delay: 0.03s) and 
+            (object-fit: cover) and 
+            (object-position: 75.5% 50%) and 
+            (order: -1) and 
+            (transition: opacity 0.7s) and 
+            (align-self: center) and 
+            (resize: none) and 
+            (counter-reset: num) and 
+            (counter-increment: num) and 
+            (content: counters(num, ".") ". ") and 
+            (padding-inline-start: 40px)
+        ){
+            .content-box{
+                display: block;
+            }
+            .bad-browser{
+                display: none;
+            }
+}

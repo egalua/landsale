@@ -1,0 +1,151 @@
+// $item-step: 22px; // отступ (интервал) между пунктами меню
+$item-step: calc(100% * 22 / 1440);
+$item-step-ends: calc(100% * 7 / 1440);
+$item-font-size: 18px; // размер шрифта пунктов меню
+
+//кнопка-габрургер для мобильного меню
+.nav-box__mobile-menu-btn{
+    display:none;
+}
+// контейнер для меню (тег <nav>)
+.nav-box{ 
+    display: flex;
+    // justify-content: center;
+    padding-top: 21px;
+    padding-bottom: 20px;
+}
+// блок меню (тег <ul>)
+.nav-box__menu{ 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+// интервал между пунктами меню
+.nav-box__menu>* + *{ 
+    margin-left: $item-step;
+}
+// поправка интервала для последних двух пунктов
+.nav-box__menu-item:nth-last-child(-n+2){ 
+    margin-left: $item-step + $item-step-ends;
+}
+// пункт меню (тег <li>)
+.nav-box__menu-item{ 
+    display: flex;
+    justify-content: center;
+}
+// ссылка внутри пункта меню (тег <a>)
+.nav-box__menu-item-link, 
+.nav-box__menu-item-link:visited
+{
+    color: #F1F5F2;
+    line-height: 22x;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: calc(100vw * 18 / 991);
+
+    white-space: nowrap;
+    text-shadow: 0.008px 0px 0px rgba(255,255,255,0.85),
+                 0px 0.008px 0px rgba(255,255,255,0.85);
+
+}
+
+// при наведении на ссылку пункта меню
+.nav-box__menu-item-link:hover{
+    border-bottom: 1px solid #F1F5F2;
+    text-shadow: none;
+    color: #F1F5F2;
+    margin-bottom: -1px;
+}
+
+// font-size стили для пунктов меню
+// начиная с больших планшетов font-size не меняется
+@media(min-width:991px){ 
+    .nav-box__menu-item-link{
+        font-size: $item-font-size;
+    }   
+}
+// убираем меню в кнопку - бургер для смартфонов и небольших планшетов
+@media(max-width:767px){ 
+    // меняем отступы в контейнере для мобильных меню
+    .nav-box{
+        padding-top: 24px;
+        padding-bottom: 5px;
+        position: relative;
+    }
+    // стили для мобильного меню
+    .nav-box__menu{
+        display: none;
+    }    
+    // кнопка-гамбургер мобильного меню
+    .nav-box__mobile-menu-btn{
+        display: block;
+        width: 9.375vw; // по макету 30px при viewport==320px
+        height: 5.9375vw; // по макету 19px при viewport==320px
+        width: 30px;
+        height: 19px;
+        border-top: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        margin-left: 27px;
+        margin-right: 16px;
+    }
+    .nav-box__mobile-menu-btn:before{
+        content: '';
+        display: block;
+        width: 100%;
+        border-top: 3px solid #fff;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .nav-box__mobile-menu-btn:focus{
+        outline: none;
+    }
+
+    // открывает меню гамбургер
+    .nav-box_mobile-active{
+        // активное (открытое) мобильное меню (блок <ul>)
+        >.nav-box__menu{
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            left: 27px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            max-height: 320px;
+            width: auto;
+            background: rgba(241,242,245, 0.15);
+            
+            // пункт меню (тег <li>) для мобильных
+            >.nav-box__menu-item{ 
+                justify-content: flex-start;
+                margin: 0;
+                margin-left: 16px;
+                margin-right: 16px;
+            }
+            // отступы (интервал) между пунктами мобильного меню
+            >.nav-box__menu-item + .nav-box__menu-item{
+                margin-top: 8px;
+
+            }
+            // отступы от первого и последнего пункта меню
+            >.nav-box__menu-item:last-child{
+                margin-bottom: 16px;
+            }
+            >.nav-box__menu-item:first-child{
+                margin-top: 16px;
+            }
+        }
+        .nav-box__mobile-menu-btn:before{
+            // width: calc(100% + 16px);
+        }
+    
+    }    
+
+    
+    // пункты меню
+    .nav-box__menu-item-link{ 
+        // минимальный размер шрифта пунктов меню
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,8 @@
+mixin agreement(content)
+    ol.text-content__list
+        each list in content
+            li.text-content__list-itm !{list.title}
+                if list.subtitle
+                    ol.text-content__sub-list
+                        each subList in list.subtitle
+                            li.text-content__sub-list-itm !{subList.title}

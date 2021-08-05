@@ -1,0 +1,65 @@
+$gallery-description-width: calc(100% * 737/1440);
+$gallery-images-width: calc(100% * 703/1440);
+$description-maxwidth: 737px;
+$images-maxwidth:703px;
+
+// возвращает параметры шрифта блока галереи
+@mixin get-glr-font($font-weight){ 
+    font-family: Montserrat;
+    // font-size: 18px;
+    // font-size: calc( ( (100vw * 3) / 560 ) + (72px / 7) );
+    font-size: calc( 100vw * (18 / 1440) );
+    font-weight: $font-weight;
+    // line-height: 22px;
+    line-height: calc( (100vw * 7) / 1120 + 91px / 7 );
+    // line-height: calc( 100vw * (22 / 1440) );
+    letter-spacing: 0em;
+}
+// блок сетки
+.gallery{ 
+    display: flex;
+    align-items: flex-start;
+    // margin-top: 169px;
+    // margin-top: calc( 100vw * (169/1440) );
+    // margin-top:85px; padding-top:84px;  при vw:1440px;
+    margin-top: calc(100vw * (85/1440));
+    padding-top: calc(100vw * (84/1440));
+
+}
+// блок с описанием
+.gallery__description{ 
+    width: $gallery-description-width;
+}
+// блок с галереей
+.gallery__images{ 
+    width: $gallery-images-width;
+}
+// ----- Ограничители -----
+@media screen and (min-width: 1440px){
+    .gallery{
+        // margin-top: 169px;
+        margin-top: 85px;
+        padding-top: 84px;
+    }
+    .gallery__images{
+        max-width: $images-maxwidth;
+    }
+    .gallery__description{
+        max-width: $description-maxwidth;
+    }
+}
+// ----- Стили для мобильной версии -----
+@media screen and (max-width: 767px){
+    .gallery{
+        flex-direction: column;
+        margin-top: 29px;
+    }
+    .gallery__description{
+        width: 100%;
+    }
+    .gallery__images{
+        width: 100%;
+    }
+}
+@import "./description/description.scss";
+@import "./images-list/images-list.scss";

@@ -1,0 +1,7 @@
+import img1Lg from "./lg-monastery-photo.png"
+import img2Lg from "./hospital.jpg"
+import img3Lg from "./lg-monastery.jpg"
+import img4Lg from "./school-1.jpg"
+import monastery_768px from "./monastery-768px.jpg"
+import monastery_1440px from "./monastery-1440px.jpg"
+import monastery_1920px from "./monastery-1920px.jpg"

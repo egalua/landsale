@@ -1,0 +1,66 @@
+@mixin get-case-font($width){
+    font-family: Montserrat;
+    // font-size:  18px;
+    font-size: calc( 100vw * (1 / 560) + (108px / 7) );
+    font-weight: $width;
+    line-height: 22px;
+    letter-spacing: -0.03em;
+    color: #2E2E2E;    
+    @media screen and (min-width:1440px){
+        font-size: 18px;
+    }
+}
+
+$case-width: 252px;
+
+// блок с вариантами использования
+.use-cases{
+    display: flex;
+    background: #fff;
+    flex-grow: 1;
+
+}
+// варианты использования
+.case{
+    margin-top: calc(100vw * (50 / 1440) ); // 50px
+    margin-bottom: calc(100vw * (52 / 1440) ); // 52px
+}
+.case:first-child{
+    margin-left: calc( 100vw * (60 / 1440) ); // 60px
+    width: $case-width;
+}
+.case:last-child{
+    margin-left: calc( 100vw * (53 / 1440) ); // 53px
+    width: $case-width;
+}
+
+// заголовок варианта использования
+.case__problem{
+    @include get-case-font(700);
+}
+// текст варианта использования
+.case__solution{
+    @include get-case-font(400);
+    margin-top: 10px;
+}
+
+// ----- Ограничители -----
+
+@media(min-width: 1440px){
+    .case{
+        margin-top: 50px;
+        margin-bottom: 52px;
+        font-size: 18px;
+    }
+    .case:first-child{
+        margin-left: 60px;
+    }
+    .case:last-child{
+        margin-left: 53px;
+    }
+    .case__problem,
+    .case__solution{
+        font-size: 18px;
+        line-height: 22px;
+    }
+}

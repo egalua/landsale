@@ -1,0 +1,239 @@
+$offer-margin-left: calc( 100% * (160 / 737) ); // отступ слева для блока предложений 160px
+$offer-width: calc( 100% * (577 / 737) ); // ширина блока предложений 
+$offer-margin-top: calc(100% * (207 / 737) ); // верхний отступ блока предложений
+// $offer-font-size: calc(100vw * (18 / 1440) ); // основной размер шрифта блока предложений от 18px при vw:1440px до 16px при vw:767px
+$offer-font-size: calc(100vw * (2 / 673) + (9234px / 673)); // основной размер шрифта блока предложений от 18px при vw:1440px до 16px при vw:767px
+// $offer-title-font-size: calc(100vw * (60 / 1440) ); // размер шрифта основного заголовка блока предложений
+$offer-title-font-size: calc(100vw * (35 / 673) - (10020px / 673)); // размер шрифта основного заголовка блока предложений 60px vw:1440px; 25px vw:767px
+$offer-title-font-size-max: 60px; // максимальный размер шрифта основного заготовка блока предложений
+$text-color: #F1F5F2; // цвет текста блока
+$get-price-width: calc(100vw * (273 / 1440)); // ширина кнопки "узнать цену"
+$get-price-height: calc(100vw * (52 / 1440)); // высота кнопки "узнать цену"
+
+// блок-контейнер для предложения
+.offer{ 
+    margin-left: $offer-margin-left;
+    margin-top: $offer-margin-top;
+    width: $offer-width;
+    font-family: 'Montserrat', sans-serif;
+}
+// уточняющий подзаголовок
+.offer-subtitel{ 
+    font-size: $offer-font-size;
+    color: $text-color;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    line-height: calc(22 / 18);
+}
+// предложение
+.offer-title{ 
+    margin-top: 16px;
+    font-weight: 900;
+    font-size: $offer-title-font-size;// от 60px для vw=1440px до 25px для vw=600px
+    line-height: calc(73 / 60); // 73px
+    color: $text-color;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+// кнопка "узнать цену" и "позвонить"
+.get-price-button, 
+.get-price-button:visited
+{
+    margin-top: 30px;
+    background: #621708;    // rgb(98,23,8)
+    display: flex;
+    align-items: center;
+    width: $get-price-width;
+    height: $get-price-height;
+    
+    max-width: 273px;
+    min-width: 243px;
+    max-height: 52px;
+    min-height: 42px;
+}
+// кнопка "позвонить" не видна на desktop
+.call-button,
+.call-button:visited{
+    display: none;
+    margin-top: 30px;
+    align-items: center;
+    width: $get-price-width;
+    height: $get-price-height;
+    min-height: 42px;
+    min-width: 243px;
+}
+
+// надпись на кнопке
+.get-price-button__text,
+.call-button__text{ 
+    color: #F1F5F2;
+    font-size: $offer-font-size;
+    font-weight: 400;
+    line-height: calc(22 / 18);
+    letter-spacing: -0.02em;
+    margin-left: 74px;
+}
+.get-price-button:hover{
+    background: rgb(94,19,4);
+}
+// мотивирующее дополнение к предложению
+.offer-sign{ 
+    margin-top: calc(100vw * (110 / 1440) ); 
+    letter-spacing: 0em;
+    line-height: calc(22 / 18);
+    font-weight: 400;
+    font-size: $offer-font-size;
+    color: #F1F5F2;
+    white-space: nowrap;
+}
+// ----- ограничители для desktop -----
+@media screen and (min-width: 1440px){
+    .offer{
+        margin-top: 208px;
+    }
+    .offer-subtitel{
+        margin-top: 1px;
+    }
+    .offer-title{
+        margin-top: 19px;
+        font-size: $offer-title-font-size-max;
+    }
+    .get-price-button{
+        margin-left: -5px;
+    }
+    .offer-sign{
+        margin-top: 111px;
+        margin-left: 1px;
+
+    }
+    .offer-subtitel,
+    .offer-sign,
+    .get-price-button__text{
+        font-size: 18px;
+    }
+
+}
+
+// ----- переход на мобильную версию -----
+@media screen and (max-width:767px){
+    .offer{
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .offer-sign{
+        display: none;
+    }
+    .offer-subtitel{
+        margin-top: 188px
+    }
+    .offer-title{
+        text-align: center;
+        margin-top: 23px;
+        font-size: 25px;
+    }
+    .call-button{
+        display: block;
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #fff;
+        background: transparent;
+        
+
+    }
+    .call-button__pict{
+        // box-shadow: 2px 2px 2px rgba(15, 37, 14, 0.7),
+        //             2px -2px 2px rgba(15, 37, 14, 0.7),
+        //             -2px 2px 2px rgba(15, 37, 14, 0.7),
+        //             -2px -2px 2px rgba(15, 37, 14, 0.7);
+        // background: rgb(15, 37, 14);
+        // width: 14px;
+        // height: 15px;
+        // width: 32px;
+        // height: 33px;
+        // border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        
+    }
+    .call-button__text{
+        // text-shadow: 4px 4px 2px rgb(15, 37, 14);
+
+        // ---------- при прокрутке ----------
+        // display: none;
+    }
+    .call-button{
+        >* + *{
+            margin-left: 5px;
+        }
+    }
+    // прилипшая к верху экрана кнопка "позвонить"
+    .call-button_sticky{
+        // ---------- при прокрутке ----------
+        position: fixed;
+        top: 5px;
+        right: 5px;
+        margin-top: 0 !important;
+        min-width: auto;
+        width: auto;
+        min-height: auto;
+        max-width: auto;
+        max-height: auto;
+        height: auto;
+        z-index: 2;
+        
+        >.call-button__pict{
+            // ---------- при прокрутке ----------
+            // width: 40px;
+            // height: 40px;
+            width: calc(100vw * 40 / 320);
+            height:  calc(100vw * 40 / 320);
+            background: rgb(15, 37, 14);
+            >svg{
+                width: calc(100vw * 20 / 320);
+                height:  calc(100vw * 20 / 320);   
+                // stroke: #839ccc;
+            }
+        }
+        >.call-button__text{
+            display: none;
+        }
+    }
+
+
+    .get-price-button{
+        // 90px при vw:767px; 70px при vw:320px
+        margin-top: calc(100vw * (20 / 447) + (24890px / 447));
+        >span{
+            margin-left: 68px;
+        }
+    }
+    .offer-subtitel,
+    .offer-sign,
+    .get-price-button__text,
+    .call-button__text{
+        font-size: 16px;
+    }
+}
+
+// ограничители для смартфонов
+@media screen and (max-width: 320px){
+    // заголовок блока предложения
+    .offer-title{
+        margin-right: 8px;
+    }
+
+    .get-price-button{
+        margin-top: 70px;
+    }
+    .call-button{
+        margin-top: 35px;
+    }
+}

@@ -1,0 +1,82 @@
+//- расположение картинок
+-var path="./img";
+//- необходимые данные по каждой картинке
+-var images = [
+-   {title: "Первая картинка", lgHref: path + "/img1_1920px.jpg", tumbsSrc: path + "/img1-thumbs.jpg"},
+-   {title: "Вторая картинка", lgHref: path + "/img2_1920px.jpg", tumbsSrc: path + "/img2-thumbs.jpg"},
+-   {title: "Третья картинка", lgHref: path + "/img3_1920px.jpg", tumbsSrc: path + "/img3-thumbs.jpg"},
+-   {title: "Четвёртая картинка", lgHref: path + "/img4_1920px.jpg", tumbsSrc: path + "/img4-thumbs.jpg"},
+-   {title: "Пятая картинка", lgHref: path + "/img5_1920px.jpg", tumbsSrc: path + "/img5-thumbs.jpg"},
+-   {title: "Шестая картинка", lgHref: path + "/img6_1920px.jpg", tumbsSrc: path + "/img6-thumbs.jpg"},
+-   {title: "Седьмая картинка", lgHref: path + "/img7_1920px.jpg", tumbsSrc: path + "/img7-thumbs.jpg"},
+-   {title: "Восьмая картинка", lgHref: path + "/img8_1920px.jpg", tumbsSrc: path + "/img8-thumbs.jpg"},
+-   {title: "Девятая картинка", lgHref: path + "/img9_1920px.jpg", tumbsSrc: path + "/img9-thumbs.jpg"},
+-   {title: "Десятая картинка", lgHref: path + "/img10_1920px.jpg", tumbsSrc: path + "/img10-thumbs.jpg"},
+-   {title: "Одиннадцатая картинка", lgHref: path + "/img11_1920px.jpg", tumbsSrc: path + "/img11-thumbs.jpg"},
+-   {title: "Двенадцатая картинка", lgHref: path + "/img12_1920px.jpg", tumbsSrc: path + "/img12-thumbs.jpg"},
+-   {title: "Тринадцатая картинка", lgHref: path + "/img13_1920px.jpg", tumbsSrc: path + "/img13-thumbs.jpg"},
+-   {title: "Четырнадцатая картинка", lgHref: path + "/img14_1920px.jpg", tumbsSrc: path + "/img14-thumbs.jpg"},
+-   {title: "Пятнадцатая картинка", lgHref: path + "/img15_1920px.jpg", tumbsSrc: path + "/img15-thumbs.jpg"},
+-   ];
+
+//- Формирует блок с картинками галереи
+//- content == массив объектов вида
+//- { 
+//-   title: "всплывающая подсказка", 
+//-   lgHref:"ссылка на большую картинку (абсолютный путь)", 
+//-   tumbsSrc: "маленька картинка (аисолютный путь)"
+//- }
+mixin getgallegy(content)
+    ul.img-contents__imgs-tape
+        each img in content
+            li.img-contents__imgs-tape-item
+                a(href=img.lgHref title=img.title).img-contents__large-img-link
+                    img(src=img.tumbsSrc).img-contents__small-img
+
+//- возвращает кнопки управления (влево / вправо)
+mixin getDirButton(classname)
+    div(class=classname)
+        .svg-box
+            <svg viewbox="0 0 60 100">
+                <path d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z"/>
+            </svg>
+//- возвращает кнопку close
+mixin getCloseButton(classname)
+    div(class=classname)
+        .svg-box
+            <svg viewBox="0 0 329.26933 329" xmlns="http://www.w3.org/2000/svg">
+                <path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
+            </svg>
+//- возвращает контейнер с большой картинкой
+mixin getLargeImgBox(classname)
+    div(class=classname)
+        .img-contents__foto-counter 6/12
+        img(alt="large image" src="").img-contents__large-img
+        .img-contents__large-img-preloader
+            include preloader/preloader.pug
+        +getDirButton('img-contents__to-left')
+        +getDirButton('img-contents__to-right')        
+//- -----------------------------------------
+.gallery__images-box.images-box
+    //- галерея с картинками
+    .images-box__img-contents.img-contents
+        .img-contents__control-box
+            +getLargeImgBox('img-contents__large-img-box')
+            //- +getDirButton('img-contents__to-left')
+            //- +getDirButton('img-contents__to-right')
+            +getCloseButton('img-contents__closeBtn')            
+        //- Нужно добавить обёртку для .img-contents__imgs-tape-wrapper
+        //- и положить туда кнопки управления лентой: один клик - прокрутка на ширину экрана
+        //- временно сделать их display: none для основной галереи
+        .img-contents__imgs-tape-wrapper
+            +getDirButton('img-contents__tape-to-left')
+            .img-contents__imgs-tape-hidden-box
+                +getgallegy(images)
+            +getDirButton('img-contents__tape-to-right')
+                
+    //- указатель с глазом Саурона
+    .images-box__pointer-box.pointer-box
+        .pointer-box__eye-icon
+            svg(width="33" height="20" viewBox="0 0 33 20" fill="none" xmlns="http://www.w3.org/2000/svg")
+                path(d="M16.4634 4.21453e-05C9.09408 0.011365 2.51916 4.05363 0 9.99813C2.52613 15.9653 9.12543 20 16.4983 20H16.5331C23.9024 19.9887 30.4808 15.9464 33 9.99813C30.4669 4.02721 23.8537 -0.015055 16.4634 4.21453e-05ZM21.8328 5.73696C22.0383 5.5407 22.2753 5.37085 22.5261 5.23121C22.9861 4.98965 23.5087 4.85 24.0174 4.89907C24.5192 4.94814 25.0209 5.20101 25.2334 5.6879C25.3972 6.19742 25.216 6.75979 24.8955 7.17874C24.5714 7.60523 24.1115 7.90718 23.6341 8.09212C23.3937 8.17893 23.1463 8.23932 22.9024 8.26573C22.6516 8.29216 22.4077 8.28461 22.1742 8.23932C21.7108 8.14873 21.3275 7.88453 21.1882 7.5222C21.0453 7.16364 21.1359 6.67676 21.4042 6.25404C21.5226 6.0691 21.669 5.89548 21.8328 5.73696ZM16.4983 17.0485C12.8641 17.0485 9.91638 13.8555 9.91638 9.91887C9.91638 5.98229 12.8606 2.78924 16.4983 2.78924C18.4007 2.78924 20.1185 3.66488 21.3171 5.06514C21.0906 5.24253 20.8815 5.45766 20.7003 5.71054C20.4983 5.99739 20.3345 6.3333 20.2544 6.7145C20.1742 7.09571 20.1916 7.52597 20.3415 7.91473C20.4913 8.30348 20.7666 8.61674 21.0697 8.82056C21.3763 9.03192 21.7143 9.13382 22.0453 9.18289C22.3833 9.22818 22.7178 9.20931 23.0418 9.14137C23.0662 9.39802 23.0801 9.65467 23.0801 9.91887C23.0836 13.8555 20.1359 17.0485 16.4983 17.0485Z" fill="white" fill-opacity="0.7")
+        .pointer-box__label Посмотреть

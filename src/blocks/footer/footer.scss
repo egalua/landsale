@@ -1,0 +1,725 @@
+// внешний контейнер footer (сетка)
+.footer{
+    width: 100%;
+}
+// внутренний контейнер footer (позиционирование относительно внешнего контейнера)
+// .footer__footer-box{
+
+
+// }
+// внутренний контейнер footer (внутренние стили footer)
+.footer-box{
+    display: flex;
+    background: #0F250E;
+}
+// блок с контактами - внешний контейнер(по БЭМ)
+.footer-box__contacts-box{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+// блок с контактами - внешний контейнер
+// .contacts-box{
+
+// }
+// блок с контактами - внутренний контейнер (по БЭМ)
+.contacts-box__contacts{
+    transform: translate(0, calc(100vw * ((0 - 109) / 1440)) );
+}
+// блок с контактами - внутренний контейнер
+.contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+// декоративная картинка блока с контактами
+.contacts__img{
+    width: calc(100vw * (485 / 1440));
+    height: calc(100vw * (552 / 1440));
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('./img/contacts-img.jpg');
+}
+// блок с текстом контактов
+.contacts__text{
+    font-family: 'Montserrat';
+    font-size: 18px; // не меняется до мобильной версии
+    line-height: 22px; // не меняется до мобильной версии
+    color: #F1F5F2;
+    font-weight: normal;
+
+    margin-top: calc(100vw * (18 / 1440));
+}
+// заголовок блока контактов
+// .contacts__caption{
+
+// }
+// блок с контактными телефонами
+.contacts__phones{
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(100vw * (23 / 1440));
+}
+// контактный телефон
+.contacts__phone-number{
+    color: #F1F5F2;
+}
+// блок с контактными e-mail адресами
+.contacts__e-mails{
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(100vw * (23 / 1440));
+}
+// e-mail адрес
+.contacts__email-address{
+    color: #F1F5F2;
+}
+// внешний контейнер блока с формой "отправить заявку" (по БЭМ) 
+.footer-box__form-wrapper{
+    width: 50%;
+}
+// внешний контейнер блока с формой "отправить заявку"
+.form-wrapper{
+    display: flex;
+}
+// блок с формой "отправить заявку" (по БЭМ)
+.form-wrapper__form-block{
+    // margin-top:54px; vw:1440px; margin-top:23px; vw:768px;
+    margin-top: calc(100vw * (31 / 672) - (87px / 7));
+    // margin-left:80px; vw:1440px; margin-left:27px; vw:768px;
+    margin-left: calc(100vw * (53 / 672) - (235px / 7));
+}
+// блок с формой "отправить заявку"
+.form-block{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    background: rgba(139, 175, 137, 0.7);
+    background: rgba(68, 86, 37, 0.7);
+
+    font-family: 'Montserrat';
+
+    width: calc(100vw * 485 / 1440);
+    // vw:1440px height:596px; :: vw:768px; height: 370px;
+    height: calc(100vw * (113 / 336) + (782px / 7));
+}
+
+// блок с сообщением об отправке заявки
+.form-block__send-message{
+    display: none;
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    background: rgba(0,0,0, 0.9);
+    background: rgba(68, 86, 37, 0.9);
+    background: rgba(15, 37, 14, 1);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    justify-content: space-around; 
+    align-items: center;
+    z-index: 1;
+}
+// включение блока с сообщением об отправке заявки
+.form-block__send-message_active{
+    display: flex;
+}
+// заголовок сообщения об отправке
+.form-block__send-message-title{
+    color: #fff;
+    text-align: center;
+    font-family: 'Montserrat';
+    // от 18px при vw:1440px до 14px при vw:767px
+    font-size: calc(100vw * ( 4 / 673) + (6354px / 673));
+    width: 80%;
+}
+// тело сообщения об отправке
+.form-block__send-message-content{
+    color: #fff;
+    font-family: 'Montserrat';
+    // от 16px при vw:1440px до 12px при vw:767px
+    font-size: calc(100vw * ( 4 / 673) + (5008px / 673));
+    width: 80%;
+}
+// кнопка "закрыть сообщение"
+.form-block__send-message-close{
+    color: #fff;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    padding: 4px;
+    background: rgba(0,0,0, 0.9);
+    background: rgba(139, 175, 137, 0.7);
+    border: 1px solid #000;
+    border-radius: 4px;
+    width: 80%;
+    text-align: center;
+    cursor: default;
+}
+
+// заголовок блока с формой
+.form-block__caption{
+    // vw:1440px; font-size:26px; :: vw:768px; font-size:18px;
+    font-size: calc(100vw * (1 / 84) + (62px / 7));
+    // vw:1440px; line-height:37px; :: vw:768px; line-height:22px;
+    line-height: calc(100vw * (5 / 224) + (34px / 7));
+
+    font-weight: normal;
+    color: #0F250E;
+
+    // vw:1440px; margin-top:30px; :: vw:768px; margin-top:20px;
+    margin-top: calc(100vw * (5 / 336) + (60px / 7));
+    text-align: center;
+
+}
+// сама форма (<form>)
+// .form-block__form{
+
+// }
+// сама форма (<form>)
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+// поля ввода ФИО и email
+.form__field{
+    // vw:1440px; font-size:18px; :: vw:768px; font-size:16px;
+    font-size:calc(100vw * (1 / 336) + (96px / 7));
+    // vw:1440px; line-height:22px; :: vw:768px; line-height:18px;
+    line-height: calc(100vw * (1 / 168) + (94px / 7));
+    // vw:1440px; padding:12px 12px 10px 12px; :: vw:768px; padding: 10px 10px 8px;
+    // padding: 12px 12px 10px 12px;
+    padding: calc(100vw * (1 / 336) + (54px / 7))
+             calc(100vw * (1 / 336) + (54px / 7))
+             calc(100vw * (1 / 336) + (40px / 7));
+
+    font-weight: normal;
+    color: #000;
+
+    background: #415826;
+    width: calc(100vw * (383/1440));
+    
+    border: 3px solid #31431C;
+}
+// подсветка при ошибке ввода
+.form__field_error{
+    background: rgba(98,23,08,0.5);
+}
+.form__name::placeholder, .form__email::placeholder, .form__text::placeholder{
+    color: #000;
+}
+// поле ввода ФИО
+.form__name{
+    // vw:1440px; margin-top: 24px; :: vw:768px; margin-top: 15px;
+    margin-top: calc(100vw * (3 / 224) + (33px / 7));
+}
+// поле ввода email
+.form__email{
+    // vw:1440px; margin-top: 13px; :: vw:768px; margin-top: 5px;
+    margin-top: calc(100vw * (1 / 84) - (29px / 7));
+}
+// поле ввода текста сообщения
+.form__text{
+    resize: none; 
+    // vw:1440px; margin-top: 13px; :: vw:768px; margin-top: 5px;
+    margin-top: calc(100vw * (1 / 84) - (29px / 7));
+    // vw:1440px; width:383px;
+    width: calc(100vw * 383/1440); 
+    border: 3px solid #31431C;
+    background: #415826;
+    // vw:1440px; font-size: 18px; :: vw:768px; font-size: 16px;
+    font-size: calc(100vw * (1 / 336) + (96px / 7));
+    // vw:1440;	line-height: 22px; :: vw:768px; line-height: 18px;
+    line-height: calc(100vw * (1 / 168) + (94px / 7));
+    // vw:1440;	height: 200px; :: vw:768px; height: 115px;
+    height: calc(100vw * (85 / 672) + (125px / 7));
+    //  vw:1440;	padding: 23px 16px; :: vw:768; padding: 8px 8px;
+    padding: calc(100vw * (5 / 224) - (64px / 7))
+             calc(100vw * (1 / 84) - (8px / 7));
+
+}
+// -------------- checkbox с политикой обработки персональных данных --------------
+// label контейнер для checkbox: согласие с политикой обработки персональных данных
+.form__conditions-label{
+    // vw:1440px; width:383px;
+    width: calc(100vw * (383/1440));
+    // vw:1440px; margin-top: 13px; :: vw:768px; margin-top: 5px;
+    margin-top: calc(100vw * (1 / 84) - (29px / 7));
+    // vw:1440px; font-size: 14px; :: vw:768px; font-size:10px;
+    font-size: calc(100vw * (1 / 168) + (38px / 7));
+
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    
+}
+// обёртка для checkbox, чтобы можно было подсвечивать checkbox при ошибке
+.form__conditions-checkbox-wrapper{
+    box-sizing: content-box;
+    display: inline-block;
+    line-height: 0;
+}
+// нет согласия с политикой обработки персональных данных
+.form__conditions-label_error .form__conditions-checkbox-wrapper{
+    border: 4px solid rgba(98,23,08,0.5);
+    border-radius: 5px;
+    margin: -4px;
+}
+.form__conditions-label > * + *{
+    margin-left: 12px;
+}
+@media screen and (min-width: 1440px){
+    .form__conditions-label{
+        // vw:1440px; width:383px;
+        width: 383px;
+        // vw:1440px; font-size: 14px; :: vw:768px; font-size:10px;
+        font-size: 14px;
+        // vw:1440px; margin-top: 13px; :: vw:768px; margin-top: 5px;
+        margin-top: 13px;
+    }
+    .form__conditions-label > * + *{
+        // vw:1440px; margin-left:10px; vw:768px; margin-left:5px;
+        margin-left: 12px;
+    }
+}
+@media screen and (max-width: 767px){
+    .form__conditions-label{
+        width: calc(100% * 218 / 262);
+        margin-top: 13px;
+        font-size: 14px;
+    }
+    .form__conditions-label > * + *{
+        // vw:1440px; margin-left:10px; vw:768px; margin-left:5px;
+        margin-left: 12px;
+    }
+}
+@media screen and (max-width: 320px){
+    // .form__conditions-label{
+
+    // }
+}
+// сам checkbox для проверки согласия с политикой обработки персональных данных
+.form__conditions-checkbox{
+    margin: 0;
+    display: inline-block;
+    // font-size:16.8px; vw:1440px; font-size:12px; vw:768px;
+    font-size: calc(100vw * (2 / 155) + (324px / 155));
+}
+@media screen and (min-width: 1440px){
+    .form__conditions-checkbox{
+        // font-size:16.8px; vw:1440px; font-size:12px; vw:768px;
+        font-size: 16.8px;
+    }
+}
+@media screen and (max-width: 767px){
+    .form__conditions-checkbox{
+        // font-size:16.8px; vw:1440px; font-size:12px; vw:768px;
+        font-size: 16.8px;
+    }
+}
+@media screen and (max-width: 320px){
+    // .form__conditions-checkbox{
+
+    // }
+}
+// текст с описанием назначения checkbox
+// .form__conditions-text{
+
+// }
+// ссылка на политику обработки персональных данных
+a.form__user-agreement,
+a.form__user-agreement:hover{
+    text-decoration: underline;
+    text-underline-position: under;
+}
+a.form__user-agreement:visited,
+a.form__user-agreement:active,
+a.form__user-agreement{
+    color: black;
+}
+
+// блок-обёртка с текстом политики обработки персональных данных
+.form-block__user-agreement-wrapper{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+// блок-обёртка с текстом политики обработки персональных данных
+.user-agreement-wrapper{
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+.user-agreement-wrapper_active{
+    display: flex;
+}
+// "внутренний" блок с текстом политики обработки персональных данных
+.user-agreement-wrapper__text-content{
+    // width:1296px vw:1440px; width:304px; vw:320px;
+    width: calc(100vw * (31 / 35) + (144px / 7));
+    max-height: 90%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+    // padding: 10px vw: 1440px padding: 5px; vw: 320px
+    padding: calc(100vw * (1 / 224) + (25px / 7));
+
+    display: flex;
+    flex-direction: column;
+
+}
+@media screen and (min-width: 1440px){
+    // "внутренний" блок с текстом политики обработки персональных данных
+    .user-agreement-wrapper__text-content{
+        padding: 10px;
+        width: 1296px;
+    }
+}
+@media screen and (max-width: 320px){
+    // "внутренний" блок с текстом политики обработки персональных данных
+    .user-agreement-wrapper__text-content{
+        padding: 5px;
+        width: 304px;
+    }
+}
+.text-content{
+    background: #fff;
+    border-radius: 5px;
+
+}
+
+// заголовок текста политики обработки персональных данных
+.text-content__title{
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+// нумерованный список пунктов политики
+.text-content__list{
+    // 40px vw:1440px; 6px vw:320px
+    padding-inline-start: calc(100vw * (17 / 560) - (26px / 7));
+    margin-top: 16px;
+    margin-bottom: 16px;
+    // font-size: 16px; vw:1440px; font-size:14px; vw:320px;
+    font-size: calc(100vw * (1 / 560) + (94px / 7));
+}
+// элемент списка 
+// .text-content__list-itm{
+
+// }
+
+// нумерованный список подпунктов политики
+.text-content__sub-list{
+    // 40px vw:1440px; 8px vw:320px
+    padding-inline-start: calc(100vw * (1 / 35) - (8px / 7));
+}
+// элемент списка подпунктов
+// .text-content__sub-list-itm{
+
+// }
+
+.text-content__list,
+.text-content__sub-list{
+    list-style: none;
+    counter-reset: num;
+}
+.text-content__list-itm:before, 
+.text-content__sub-list-itm:before{
+    counter-increment: num;
+    content: counters(num, ".")". ";
+}
+
+@media screen and (min-width: 1440px){
+    // нумерованный список пунктов политики
+    .text-content__list{
+        padding-inline-start: 40px;
+        font-size: 16px;
+    }
+    // нумерованный список подпунктов политики
+    .text-content__sub-list{
+        padding-inline-start: 40px;
+    }
+}
+@media screen and (max-width: 320px){
+    // нумерованный список пунктов политики
+    .text-content__list{
+        padding-inline-start: 6px;
+        font-size: 14px;
+    }
+    // нумерованный список подпунктов политики
+    .text-content__sub-list{
+        padding-inline-start: 8px;
+    }
+}
+
+// кнопка "закрыть" блок с текстом политики обработки персональных данных
+.text-content__close-button{
+    align-self: center;
+    border: 1px solid rgba(0,0,0,0.3);
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    background: lightgray;
+    border-radius: 6px;
+}
+// --------------------------------------------------------------------------------
+// кнопка "отправить"
+.form__send{
+    // vw:1440; font-size:18px; :: vw:768px; font-size:16px;
+    font-size: calc(100vw * (1 / 336) + (96px / 7));
+    // vw:1440; line-height: 22px; :: vw:768px; line-height: 18px;
+    line-height: calc(100vw * (1 / 168) + (94px / 7));
+
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: #2E2E2E;
+
+    // vw:1440	width: 377px;
+    width: calc(100vw * 377/1440); 
+    // vw:1440;	height:52px; :: vw:768px; height: 42px;
+    height: calc(100vw * (5 / 336) + (214px / 7));
+
+    background: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    // vw:1440;	margin-top: 31px; :: vw:768; margin-top: 15px;
+    margin-top: calc(100vw * (1 / 42) - (23px / 7));
+    
+}
+
+// ----- Ограничители -----
+@media screen and (min-width: 1440px){
+    // блок с текстом контактов
+    .contacts__text{
+        font-size: 18px;
+        line-height: 22px;
+        margin-top: 18px;
+    }
+    // блок с контактными телефонами
+    .contacts__phones{
+        margin-top: 23px;
+    }
+    // блок с контактными e-mail адресами
+    .contacts__e-mails{
+        margin-top: 23px;
+    }
+    // блок с формой "отправить заявку" (по БЭМ)
+    .form-wrapper__form-block{
+        margin-top: 54px;
+        margin-left: 80px;
+    }    
+    // блок с формой "отправить заявку"
+    .form-block{
+        width: 485px;
+        // vw:1440px height:596px; :: vw:768px; height: 370px;
+        height: 596px;
+    }
+    // заголовок блока с формой
+    .form-block__caption{
+        font-size: 26px;
+        line-height: 37px;
+        
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 383px;
+        text-align: center;
+    }
+    // поля ввода ФИО и email
+    .form__field{
+        font-size:18px;
+        line-height: 22px;
+
+        width: 383px;
+        padding: 12px 12px 10px 12px;
+        
+        border: 3px solid #31431C;
+    }
+    // поле ввода ФИО
+    .form__name{
+        margin-top: 24px;
+    }
+    // поле ввода email
+    .form__email{
+        margin-top: 13px;
+    }
+    // поле ввода текста сообщения
+    .form__text{
+        margin-top: 13px;
+        resize: none;
+
+        font-size:18px;
+        line-height: 22px;
+        font-weight: normal;
+        color: #000;
+
+        background: #415826;
+        width: 383px;
+        height: 200px;
+
+        padding: 23px 16px;
+        
+        border: 3px solid #31431C;
+    }
+    // кнопка "отправить"
+    .form__send{
+        width: 273px;
+        height: 52px;
+        margin-top: 31px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    // декоративная картинка блока с контактами
+    .contacts__img{
+        width: 485px;
+        height: 552px;
+    }
+    // блок с контактами - внутренний контейнер (по БЭМ)
+    .contacts-box__contacts{
+        transform: translate(0, -109px);
+    }
+    // заголовок сообщения об отправке
+    .form-block__send-message-title{
+        // от 18 при 1440 до 14 при 767px
+        font-size: 18px;
+    }
+    // тело сообщения об отправке
+    .form-block__send-message-content{
+        // от 16 при 1440 до 12 при 767px
+        font-size: 16px;
+    }
+}
+
+// ----- Стили для мобильных -----
+@media screen and (max-width: 767px){
+    // блок с контактами - внешний контейнер
+    .contacts-box{
+        display: none;
+    }
+    .form-wrapper{
+        width: 100%;
+        justify-content: center;
+    }
+    // блок с формой "отправить заявку"
+    .form-block{
+        // margin-top: 46px;
+        margin-top: 15px;
+        // vw:767px; margin-bottom:61px :: vw:320px; margin-bottom:30px;
+        // margin-bottom: calc(100vw * (31 / 447) + (3490px / 447));
+        margin-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+
+        width: calc(100% * 262 / 320);
+        // height: 512px;
+        height: 540px;
+    }
+    // заголовок блока с формой
+    .form-block__caption{
+        text-align: center;
+        font-size: 18px;
+        line-height: 22px;
+        
+        margin-top: 38px;
+        margin-left: 49px;
+        margin-right: 33px;
+    }
+    // поля ввода ФИО и email
+    .form__field{
+        width: calc(100% * 218 / 262);
+        
+        font-size:16px;
+        line-height: 18px;
+        padding: 10px 10px 8px;
+    }
+    // поле ввода ФИО
+    .form__name{
+        margin-top: 15px;
+    }
+    // поле ввода email
+    .form__email{
+        margin-top: 8px;
+    }
+    // поле ввода текста сообщения
+    .form__text{
+        margin-top: 13px;
+        resize: none;
+
+        font-size:18px;
+        line-height: 22px;
+        font-weight: normal;
+        color: #000;
+
+        background: #415826;
+        width: calc(100% * 218 / 262);
+        height: 200px;
+
+        padding: 8px;
+        
+        border: 3px solid #31431C;
+    }
+    // кнопка "отправить"
+    .form__send{
+        margin-top: 20px;
+        width: calc(100% * 218 / 262);
+        height: 42px;
+        font-size: 16px;
+        line-height: 18px;
+
+    }
+    // блок с формой "отправить заявку"
+    // .form-block{
+    // }
+    // заголовок сообщения об отправке
+    .form-block__send-message-title{
+        font-size: 14px;
+    }
+    // тело сообщения об отправке
+    .form-block__send-message-content{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 320px){
+
+    // блок с формой "отправить заявку"
+    .form-block{
+        width: 262px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    // поле ввода ФИО
+    // .form__name{
+
+    // }
+    // поле ввода email
+    // .form__email{
+
+    // }
+    // кнопка "отправить"
+    .form__send{
+        margin-top: 20px;
+    }
+
+}
+@import "./agreement/agreement.scss";

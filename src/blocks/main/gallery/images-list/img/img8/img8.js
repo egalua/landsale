@@ -1,0 +1,6 @@
+import img8_320px from "./img8_320px.jpg"
+import img8_420px from "./img8_420px.jpg"
+import img8_768px from "./img8_768px.jpg"
+import img8_1024px from "./img8_1024px.jpg"
+import img8_1440px from "./img8_1440px.jpg"
+import img8_1920px from "./img8_1920px.jpg"

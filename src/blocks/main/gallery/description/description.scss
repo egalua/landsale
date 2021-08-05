@@ -1,0 +1,126 @@
+// ширина блока с описанием
+$glr-desc-box-width: calc( 100vw * (582 / 1440) ); 
+// левый отступ блока с описанием
+$glr-desc-box-padding-lt: calc(100vw * (155 / 1440)); 
+// нижний отступ заголовка описания: 12px при vw:768px, 25px при vw:1440px
+$glr-desc-ttl-margin-btm: calc(100vw * (13 / 672) - (20px / 7));
+// верхний отступ заголовка описания
+$glr-desc-ttl-margin-top: 0px;
+// блок с описанием
+.gallery__description-box{ 
+    width: 100%;
+    padding-left: $glr-desc-box-padding-lt;
+    margin-top: 0;
+    overflow-y: auto;
+    padding-right: calc( 100vw * (50 / 1440) );
+
+    @include get-glr-font(400); // объявлен в gallery.scss
+}
+h3.gallery__description-title{ // заголовок описания
+    font-weight: 700;
+    margin-bottom: $glr-desc-ttl-margin-btm;
+    margin-top: $glr-desc-ttl-margin-top;
+    // font-size:18px; vw:1440px; font-size:12px vw:768px;
+    font-size: calc(100vw * (1 / 112) + (36px / 7));
+    margin-left: 4px;
+}
+// блок текста описания участка
+.gallery__description-text{ 
+    >p{
+        // margin-bottom:25px vw:1440px; margin-bottom:8px vw:768px
+        margin-bottom: calc(100vw * (17 / 672) - (80px / 7));
+        
+        // font-size:18px; vw:1440px ; font-size: 9px; vw:768px;
+        font-size: calc(100vw * (3 / 224) - (9px / 7));
+        // line-height: 22px; vw:1440px line-height: 13.5px; vw:768px;
+        line-height: calc(100vw * (17 / 1344) + (53px / 14));
+    }
+    >p:last-child{
+        margin-bottom: 0;
+    }
+}
+
+// --- ограничители размеров ---
+@media screen and (min-width: 1440px){
+    // блок с описанием, заголовок описания
+    .gallery__description-box,
+    h3.gallery__description-title{
+        font-size: 18px !important;
+        line-height: 22px;
+    }
+    // заголовок описания
+    h3.gallery__description-title{
+        margin-bottom: 25px;
+        margin-top: 0px;
+    }
+    // блок с описанием
+    .gallery__description-box{
+        padding-left: 155px;
+        padding-right: 50px;
+     }
+    // блок текста описания участка
+    .gallery__description-text{
+        >p{
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 22px;
+        }
+        >p:last-child{
+            margin-bottom: 0;
+        }
+    }
+    
+}
+
+//----- Стили для мобильной версии -----
+@media screen and (max-width: 767px){
+    // блок с описанием
+    .gallery__description-box{
+        padding: 0 31px 0 27px;
+        text-align: center;
+    }
+    // заголовок описания
+    h3.gallery__description-title{
+        margin: 0;
+    }
+    // блок текста описания участка
+    .gallery__description-text{
+        margin-top: 28px;
+    }
+    // заголовок описания и блок с описанием
+    .gallery__description-box,
+    h3.gallery__description-title{
+        // font-size: от 18px при vw:767px до 12px при vw:320px
+        font-size: calc(100vw * (6 / 447) + (3444px / 447) );
+        // line-height: От 22px при vw:767px до 15px при vw:320px
+        line-height: calc(100vw * (7 / 447) + (4465px / 447) );
+    }
+    // блок текста описания участка
+    .gallery__description-text{
+        >p{
+            margin-bottom: 25px;
+            // font-size: от 18px при vw:767px до 12px при vw:320px
+            font-size: calc(100vw * (6 / 447) + (3444px / 447) );
+            // line-height: От 22px при vw:767px до 15px при vw:320px
+            line-height: calc(100vw * (7 / 447) + (4465px / 447) );
+        }
+    }
+}
+@media screen and (max-width: 320px){
+    // заголовок описания и блок с описанием
+    .gallery__description-box,
+    h3.gallery__description-title{
+        font-size: 12px !important;
+        line-height: 15px;
+    }
+    // блок текста описания участка
+    .gallery__description-text{
+        >p{
+            margin-bottom: 25px;
+            // font-size: от 18px при vw:767px до 12px при vw:320px
+            font-size: 12px;
+            // line-height: От 22px при vw:767px до 15px при vw:320px
+            line-height: 15px;
+        }
+    }
+}

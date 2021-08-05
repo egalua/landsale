@@ -1,0 +1,299 @@
+// внешний контейнер для блока шагов (сетка)
+.steps{
+    display: flex;
+}
+// внутренний контейнер для блока "шагов"
+.steps__steps-box{
+    width: 100vw;
+    background: #FFFFFF;
+}
+// внутренний контейнер для блока "шагов" 
+.steps-box{
+
+}
+// мотивирущий заголовок блока шагов
+.steps-box__title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    // Нужен глобальный миксин для шрифта!!!
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: calc(100vw * (18 / 1440));
+    line-height: calc(100vw * (22 / 1440));
+
+    color: #2E2E2E;
+
+    width: calc(100vw * (505 / 1440) );
+    height: calc( 100vw * (143 / 1440));
+    margin-top: calc(100vw * (124 / 1440));
+    margin-left: calc(100vw * (498 / 1440));
+
+    >span:last-child{
+        letter-spacing: 0.04em;
+    }
+}
+// контейнер с самими "шагами" (блок <ul>)
+ul.steps-box__list{
+    display: flex;
+    margin-top: calc(100vw * (53 / 1440));
+    margin-left: calc(100vw * (307 / 1440));
+}
+// блоки с контретным шагом (номером и подписью, блок <li>) 
+.steps-box__item:nth-child(1){
+    width: calc(100vw * (157 / 1440));
+}
+.steps-box__item:nth-child(2){
+    width: calc(100vw * (98 / 1440));
+    margin-left: calc(100vw * (100 / 1440)) ;
+}
+.steps-box__item:nth-child(3){
+    width: calc(100vw * (176 / 1440));
+    margin-left: calc(100vw * (144 / 1440));
+}
+.steps-box__item:nth-child(4){
+    width: calc(100vw * (126 / 1440));
+    margin-left: calc(100vw * (78 / 1440));
+}
+// номера шагов
+.steps-box__number{
+    font-family: 'Montserrat';
+    font-size: calc(100vw * (96 / 1440));
+    font-weight: 900;
+    color: #8BAF89;
+    line-height: calc(100vw * (117 / 1440));
+    letter-spacing: -0.02em;
+}
+// подписи к шагам
+.steps-box__description{
+    font-family: 'Montserrat';
+    font-size: calc(100vw * (18 / 1440));
+    line-height: calc(100vw * (22 / 1440));
+    font-weight: 400;
+    color: #2e2e2e;
+}
+// внешний контейнер для цены
+.steps-box__price-box{
+    margin-top: calc(100vw * (190 / 1440));
+    margin-left: calc(100vw * (154 / 1440));
+    padding-left: calc(100vw * (692/1440));
+    padding-top: calc(100vw * (11 / 1440));
+    padding-bottom: calc(100vw * (9 / 1440));
+    margin-bottom: calc(100vw * (12 / 1440));
+
+    background: #621708;
+}
+// внутренний контейнер для цены
+.steps-box__price-content{
+    font-family: 'Montserrat';
+    color: #F1F5F2;
+    font-size: calc( 100vw * (40 / 1440));
+    line-height: calc(100vw * (49 / 1440));
+    letter-spacing: 0.1em;
+    font-weight: 900;
+    
+
+
+}
+// надпись над ценой
+.steps-box__price-title{
+    
+}
+// цена
+.steps-box__price-value{
+
+}
+// ----- Ограничители -----
+@media screen and (min-width: 1440px){
+    // внутренний контейнер для блока "шагов"
+    .steps__steps-box{
+        max-width: 1440px;
+        max-height: 840px;
+    }
+    // мотивирущий заголовок блока шагов
+    .steps-box__title{
+        width:505px;
+        height: 143px;
+        margin-top: 124px;
+        margin-left: 498px;
+        
+        font-size: 18px;
+        line-height: 22px;
+    }
+    // контейнер с самими "шагами" (блок <ul>)
+    ul.steps-box__list{
+        margin-top: 53px;
+        margin-left: 307px;
+    }
+    // блоки с контретным шагом (номером и подписью, блок <li>) 
+    .steps-box__item:nth-child(1){
+        width: 157px;
+    }
+    .steps-box__item:nth-child(2){
+        width: 98px;
+        margin-left: 100px;
+        >.steps-box__description{
+            margin-left: 3px; // поправка для pixel perfect
+        }
+    }
+    .steps-box__item:nth-child(3){
+        width: 176px;
+        margin-left: 144px;
+        >.steps-box__number{ 
+            margin-left: 2px; // поправка для pixel perfect
+        }
+    }
+    .steps-box__item:nth-child(4){
+        width: 126px;
+        margin-left: 78px;
+        >.steps-box__number{
+            margin-top: -6px; // поправка для pixel perfect
+        }
+        >.steps-box__description{
+            margin-left: -3px; // поправка для pixel perfect
+            margin-top: 8px;
+        }
+    }
+    // номера шагов
+    .steps-box__number{
+        font-size: 96px;
+        line-height: 117px;
+    }
+    // подписи к шагам
+    .steps-box__description{
+        font-size: 18px;
+        line-height: 22px;
+        // max-width: 167px;
+        margin-top: 2px; /// поправка для pixel perfect
+    }
+    // внешний контейнер для цены
+    .steps-box__price-box{
+        margin-top: 190px;
+        margin-left: 154px;
+        padding-left: 692px;
+        padding-top: 11px;
+        padding-bottom: 9px;
+        margin-bottom: 12px;
+    }
+    // внутренний контейнер для цены
+    .steps-box__price-content{
+        font-size: 40px;
+        line-height: 49px;
+    }
+}
+
+// ----- Стили для мобильной версии -----
+@media screen and (max-width: 767px){
+    // номера шагов
+    .steps-box__number{
+        font-size: 96px;
+        line-height: 117px;
+        color: #415826;
+    }
+    .steps-box__description{
+        font-size: 18px;
+        line-height: 22px;
+    }
+    // мотивирущий заголовок блока шагов
+    .steps-box__title{
+        display: none;
+    }
+    // контейнер с самими "шагами" (блок <ul>)
+    ul.steps-box__list{
+        flex-direction: column;
+        margin-top: auto;
+        margin-left: auto;
+    }
+    // блоки с контретным шагом (номером и подписью, блок <li>) 
+    .steps-box__item:nth-child(n){
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: auto;
+        justify-content: center;
+        align-items: center;
+        >.steps-box__description{
+            text-align: center;
+        }
+    }
+    .steps-box__item:nth-child(1){
+        margin-top: calc(100vw * (67 / 320) );
+        >.steps-box__description{
+            max-width: 157px;
+        }
+    }
+    .steps-box__item:nth-child(2){
+        margin-top: calc(100vw * (43 / 320) );
+        >.steps-box__description{
+            max-width: 98px;
+        }
+    }    
+    .steps-box__item:nth-child(3){
+        margin-top: calc(100vw * (48 / 320) );
+        >.steps-box__description{
+            max-width: 176px;
+        }
+    }    
+    .steps-box__item:nth-child(4){
+        margin-top: calc(100vw * (47 / 320) );
+        >.steps-box__description{
+            max-width: 126px;
+        }
+    }
+    // внешний контейнер для цены
+    .steps-box__price-box{
+        margin-top: calc(100vw * (95 / 320) );
+        margin-left: 0;
+        padding: 0;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: center;
+
+
+    }
+    // внутренний контейнер для цены
+    .steps-box__price-content{
+        // font-size: (40*767/1440)px при vw:767px т.е. ~21px
+        // font-size: 18px при vw:320px
+        font-size: calc( 100vw * (119 / 16092) + (251576px / 16092) );
+
+        // line-height: (49*767/1440) при vw:767px 
+        // line-height: 22px при vw:320px
+        line-height: calc(100vw * (5903 / 643680) + (12272000px / 643680) );
+    }
+}
+@media screen and (max-width: 320px){
+    // внутренний контейнер для цены
+    .steps-box__price-content{
+        font-size: 18px;
+        line-height: 22px;
+
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    // блоки с контретным шагом (номером и подписью, блок <li>) 
+    .steps-box__item:nth-child(1){
+        margin-top: 67px;
+    }
+    .steps-box__item:nth-child(2){
+        margin-top: 43px;
+    }    
+    .steps-box__item:nth-child(3){
+        margin-top: 48px;
+    }    
+    .steps-box__item:nth-child(4){
+        margin-top: 47px;
+    }
+    // внешний контейнер для цены
+    .steps-box__price-box{
+        margin-top: 95px;
+    }
+    // внутренний контейнер для цены
+    .steps-box__price-content{
+        margin-left: 10px; // подгонка под макет
+        padding-top: 2px;
+        padding-bottom: 3px;
+    }
+}

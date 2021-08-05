@@ -1,0 +1,1 @@
+import favicon from "./favicon.ico"

@@ -1,0 +1,68 @@
+//$container-max-width: 1440px; // ширина контейнера (см. grid.scss)
+$offer-box-width: 737px; // ширина блока с предложением
+$use-cases-box-width: 703px; // ширина блока "вариантов использования"
+$header-height: 800px; // высота блока header, возможно, придётся менять при адаптивном дизайне
+$header-img: url('img/header-1440px.jpg'); // фоновая картинка header-блока (картинка 880Кб, нужно ужимать для мобильных версий)
+
+
+@import './top-nav/top-nav.scss';
+@import './offer/offer.scss';
+@import './use-cases/use-cases.scss';
+
+.header{
+    width: 100%;
+    // height:800px при vw:1440px, 640px при vw:320px
+    height: calc( 100vw / 7 + 4160px / 7 );
+    display: flex;
+    flex-direction: column;
+}
+.header_background{
+    background: $header-img center center no-repeat; 
+    background-size: cover;
+}
+.top-window{
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    position: relative;
+}
+.top-window__offer-box{
+    // width: ($offer-box-width/$container-max-width)*100%;
+}
+.top-window__use-cases-box{
+    // width: ($use-cases-box-width / $container-max-width) * 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+/* стили для мобильных */
+@media screen and (max-width: 767px) {
+    .top-window__use-cases-box{
+        display: none;
+    }
+    .top-window__offer-box{
+        width: 100%;
+    }
+    .header_background{
+        background-image: url('./img/header-768px.jpg');
+    }
+}
+@media screen and (max-width:320px){
+    .header_background{
+        background-image: url('./img/header-320px.jpg');
+    }    
+}
+/* ----- Ограничители ----- */
+@media screen and (max-width: 320px){
+    .header{
+        height: 640px;
+    }
+}
+@media screen and (min-width: 1440px){
+    .header{
+        height: 800px;
+    }
+}

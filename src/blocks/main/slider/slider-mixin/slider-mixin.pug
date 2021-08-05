@@ -1,0 +1,23 @@
+//- возвращает "слайд" в зависимости от контента
+//- content == объект с описанием параметров слайда
+mixin getSlide(content)
+    li.tape-hiding-box__tape-item(class=content.commonOptions.activeClassName)
+        //- если слайд - это просто картинка
+        if content.slideType=="image"
+            picture.tape-hiding-box__picture-box
+                source(srcset=content.imgOptions.smHref, media=content.imgOptions.mediaSm)
+                source(srcset=content.imgOptions.mdHref, media=content.imgOptions.mediaMd)
+                img(src=content.imgOptions.lgHref, alt=content.imgOptions.alt)
+        //- если слайд - это картинка с картой от yandex
+        else if content.slideType=="yandexStaticAPI"
+            a(href=content.fromCardConstructor.link, class=content.fromCardConstructor.linkClass, target="_blank")
+                picture.tape-hiding-box__picture-box
+                    source(srcset=content.imgOptions.smHref, media=content.imgOptions.mediaSm)
+                    source(srcset=content.imgOptions.mdHref, media=content.imgOptions.mediaMd)
+                    img(src=content.imgOptions.lgHref, alt=content.imgOptions.alt)
+        //- если слайд - это фрейм с яндекс картой
+        else if content.slideType=="yandexFrame"
+            div(class=content.fromSearchQuery.boxClass)
+                a(href=content.firsLink)=content.fromSearchQuery.firstLinkContent
+                a(href=content.secondLink)=content.fromSearchQuery.secondLinkContent
+                iframe(src=content.fromSearchQuery.iframeLink, frameborder="0", allowfullscreen="true")

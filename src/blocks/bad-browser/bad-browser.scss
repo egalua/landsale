@@ -1,0 +1,20 @@
+// блок с сообщением "Ваш браузер устарел"
+.bad-browser{
+    width: 95%;
+    margin: auto;
+    padding: 5px;
+    // border: 1px solid silver;
+}
+// заголовок блока
+.bad-browser__title{
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+// текст блока
+.bad-browser__text{
+    font-size: 1rem;
+    text-align: center;
+}

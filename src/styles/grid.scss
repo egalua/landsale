@@ -1,0 +1,16 @@
+// Параметры сетки определяют положение и размеры блоков контента на странице
+// в т.ч. в зависимости от размеров viewport
+$container-max-width: 1440px; // максимальная ширина контейнера 
+$container-min-width: 320px; // минимальная ширина контейнера
+.grid-container{ // пока фиксированный макет
+    max-width: $container-max-width;
+    min-width: $container-min-width;
+    width: 100%;
+    margin: auto;
+}
+.row{
+    display: flex;
+}
+.col{
+
+}

@@ -1,0 +1,31 @@
+
+// Подключение шрифтов
+// Нужно указать только используемые
+// блок menu: Montserrat-Regular:400,Montserrat-Medium:500
+
+@mixin get-font-url($filename){
+    src: url($filename + '.ttf')  format('ttf');
+    src: url($filename + '.eot')  format('eot');
+    src: url($filename + '.woff')  format('woff');
+}
+
+@mixin get-font-face($font-family, $font-style, $font-weight, $filename){
+    font-family: $font-family;
+    font-style: $font-style;
+    @include get-font-url($filename);
+    font-weight: $font-weight;
+}
+
+$dir-name: Montserrat;
+$font-family: Montserrat;
+$fonts-map: (Montserrat-Thin:100,Montserrat-ExtraLight:200,Montserrat-Light:300,Montserrat-Regular:400,Montserrat-Medium:500,Montserrat-SemiBold:600,Montserrat-Bold:700,Montserrat-ExtraBold:800,Montserrat-Black:900);
+$fonts-map-italic: (Montserrat-ThinItalic:100,Montserrat-ExtraLightItalic:200,Montserrat-LightItalic:300,Montserrat-Italic:400,Montserrat-MediumItalic:500,Montserrat-SemiBoldItalic:600,Montserrat-BoldItalic:700,Montserrat-ExtraBoldItalic:800,Montserrat-BlackItalic:900);
+
+
+
+@each $font-name, $font-weight in $fonts-map {
+    @font-face {
+        @include get-font-face($font-family, normal, $font-weight, $dir-name + '/' + $font-name );
+    }
+}
+

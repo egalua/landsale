@@ -1,0 +1,155 @@
+-var path="./img";
+//- массив с описанием слайдов
+-var sliderContent = [
+-   {   imgOptions: { //- параметры картинок для режима вставки картинок
+-           alt: "15 минут до цивилизации", 
+-           lgHref: "https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Acb90d57b1a8bb55df37a5598abb37130e58a7bf444d609b13e00114d3238d8cd&amp;width=600&amp;height=450&amp;lang=ru_RU", 
+-           mdHref: "https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Acb90d57b1a8bb55df37a5598abb37130e58a7bf444d609b13e00114d3238d8cd&amp;width=600&amp;height=450&amp;lang=ru_RU", 
+-           smHref: "https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Acb90d57b1a8bb55df37a5598abb37130e58a7bf444d609b13e00114d3238d8cd&amp;width=600&amp;height=450&amp;lang=ru_RU",
+-           mediaSm: "media(max-width: 767px)",
+-           mediaMd: "media(max-width: 1440px)"
+-       },
+-       commonOptions: { //- общие параметры
+-           desc:"Ближайший центр цивилизации в 15-ти минутах езды",
+-           activeClassName:"tape-hiding-box__tape-item_active"
+-       },
+-       fromCardConstructor: { //- параметры для вставки из конструктора карт яндекс
+-           link:"https://yandex.ru/maps/?um=constructor%3Acb90d57b1a8bb55df37a5598abb37130e58a7bf444d609b13e00114d3238d8cd&amp;source=constructorStatic",
+-           linkClass:"tape-hiding-box__item-link"
+-       },
+-       fromSearchQuery: { //- параметры для вставки из результатов поиска на карте яндекс
+-           boxClass: "",
+-           firsLink: "",
+-           firstLinkContent: "",
+-           secondLink: "",
+-           secondLinkContent: "",
+-           iframeLink: ""
+-       },
+-       slideType: "yandexStaticAPI" //- режим вставки контенты
+-   },
+-   {   imgOptions: {
+-           alt: "Борисоглебский монастырь", 
+-           lgHref: path + "/monastery-1920px.jpg", 
+-           mdHref: path + "/monastery-1440px.jpg", 
+-           smHref: path + "/monastery-768px.jpg",
+-           mediaSm: "(max-width: 767px)",
+-           mediaMd: "(max-width: 1440px)"
+-       },
+-       commonOptions: {
+-           desc:"Двери древнего Борисоглебского монастыря всегда открыты для посетителей",
+-           activeClassName:""
+-       },
+-       fromCardConstructor: {
+-           link:"",
+-           linkClass:""
+-       },
+-       fromSearchQuery: {
+-           boxClass: "",
+-           firsLink: "",
+-           firstLinkContent: "",
+-           secondLink: "",
+-           secondLinkContent: "",
+-           iframeLink: ""
+-       },
+-       slideType: "image"
+-   },
+-   {   imgOptions: {
+-           alt: "Больница", 
+-           lgHref: path + "/hospital.jpg", 
+-           mdHref: path + "/hospital.jpg", 
+-           smHref: path + "/hospital.jpg",
+-           mediaSm: "(max-width: 767px)",
+-           mediaMd: "(max-width: 1440px)"
+-       },
+-       commonOptions: { 
+-           desc:"Поправить здоровье можно в Борисоглебской центральной районной больнице",
+-           activeClassName:""
+-       },
+-       fromCardConstructor: {
+-           link:"",
+-           linkClass:""
+-       },
+-       fromSearchQuery: {
+-           boxClass: "",
+-           firsLink: "",
+-           firstLinkContent: "",
+-           secondLink: "",
+-           secondLinkContent: "",
+-           iframeLink: ""
+-       },
+-       slideType: "image"
+-   },
+-   {   imgOptions: {
+-           alt: "Магазины", 
+-           lgHref: "", 
+-           mdHref: "", 
+-           smHref: "",
+-           mediaSm: "",
+-           mediaMd: ""
+-       },
+-       commonOptions: {
+-           desc:"В ближайших магазинах есть всё необходимое для жизни",
+-           activeClassName:""
+-       },
+-       fromCardConstructor: {
+-           link:"",
+-           linkClass:""
+-       },
+-       fromSearchQuery: {
+-           boxClass: "tape-hiding-box__tape-item-shops",
+-           firsLink: "https://yandex.ru/maps/10841/yaroslavl-oblast/search/%D0%91%D0%BE%D1%80%D0%B8%D1%81%D0%BE%D0%B3%D0%BB%D0%B5%D0%B1%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D1%8B/?utm_medium=mapframe&utm_source=maps",
+-           firstLinkContent: "Борисоглебский магазины в Ярославской области",
+-           secondLink: "https://yandex.ru/maps/10841/yaroslavl-oblast/?utm_medium=mapframe&utm_source=maps",
+-           secondLinkContent: "Ярославская область",
+-           iframeLink: "https://yandex.ru/map-widget/v1/-/CCUIbHEIWC"
+-       },
+-       slideType: "yandexFrame"
+-   },
+-   {   imgOptions: {
+-           alt: "Школа", 
+-           lgHref: path +  "/school-1.jpg", 
+-           mdHref: path +  "/school-1.jpg", 
+-           smHref: path +  "/school-1.jpg",
+-           mediaSm: "(max-width: 767px)",
+-           mediaMd: "(max-width: 1440px)"
+-       },
+-       commonOptions: {
+-           desc:"Уютная школа поможет раскрыть таланты и вдохновит на новые открытия",
+-           activeClassName:""
+-       },
+-       fromCardConstructor: {
+-           link:"",
+-           linkClass:""
+-       },
+-       fromSearchQuery: {
+-           boxClass: "",
+-           firsLink: "",
+-           firstLinkContent: "",
+-           secondLink: "",
+-           secondLinkContent: "",
+-           iframeLink: ""
+-       },
+-       slideType: "image"
+-   }
+- ];
+
+
+//- -------------------------------------------------------
+
+include slider-mixin/slider-mixin.pug
+
+section.slider
+    .slider__slider-box.slider-box#slider
+        h3.slider-box__title Борисоглебский
+        .slider-box__tape-hiding-box.tape-hiding-box
+            ul.tape-hiding-box__tape
+                each sContent in sliderContent
+                    +getSlide(sContent)
+        .slider-box__description-box.description-box
+            ul.description-box__list-box.list-box
+                each content in sliderContent
+                    li.list-box__item-box.item-box(class = content.commonOptions.activeClassName!='' ? "list-box__item-box_active": "")
+                        .item-box__desc=content.commonOptions.desc
+        ul.slider-box__control
+            each content in sliderContent
+                li.slider-box__control-item(class = content.commonOptions.activeClassName!='' ? "slider-box__control-item_active": "")

@@ -1,0 +1,18 @@
+// импорт картинок под разные разрешения
+import './img1/img1.js'
+import './img2/img2.js'
+import './img3/img3.js'
+import './img4/img4.js'
+import './img5/img5.js'
+import './img6/img6.js'
+import './img7/img7.js'
+import './img8/img8.js'
+import './img9/img9.js'
+import './img10/img10.js'
+import './img11/img11.js'
+import './img12/img12.js'
+import './img13/img13.js'
+import './img14/img14.js'
+import './img15/img15.js'
+// импорт preview картинок
+import './thumbs/thumbs.js'

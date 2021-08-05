@@ -1,0 +1,245 @@
+// размеры картинок (365px при vp:1440px)
+$key-img-width: calc( 100vw * (365 / 1440) );
+$key-img-height: calc( 100vw * (365 / 1440) );
+
+// размеры подписей картинок
+$key-caption-width: calc( 100vw * (273 / 1440) );
+$key-caption-height: calc( 100vw * (52 / 1440) );
+
+// шрифт подписей должен меняться от 18px при vp:1440px
+$key-font-size: calc( 100vw * (18 / 1440) );
+
+// основной контейнер
+.key-properties{
+    display: flex;
+}
+// контейнер картинок - предложений
+.key-properties__properties-box{
+    display: flex;
+
+    margin-left: calc(100vw * (155 / 1440));
+    margin-top: calc(100vw * (171 / 1440) ); 
+    margin-right: calc( 100vw * (114 / 1440) ); 
+}
+// контейнер для картинки и описания (подписи)
+.key-properties__img-box{
+    position: relative;
+    background: rgba(0,20,255, 0.07);
+}
+// первая картинка
+.key-properties>.key-properties__img-box:first-child{
+
+}
+// интервал между картинками
+.key-properties{
+    .key-properties__img-box+.key-properties__img-box{
+        margin-left: calc(100vw * (38 / 1440) );
+    }
+}
+// сама картинка (тег <img>)
+.key-properties__img{
+    width: $key-img-width;
+    height: $key-img-height;
+    object-fit: cover;
+    
+}
+// поправка для первой картинки
+.key-properties__img-box:first-child{
+    .key-properties__img{
+        object-position: 75.5% 50%;
+    }
+}
+//подпись к картинке
+.key-properties__img-caption{
+    position: absolute;
+    bottom: 0;
+
+    // где-то был миксин для шрифта!!!
+    font-size: $key-font-size;
+    font-family: Montserrat;
+    font-weight: 500;
+    
+    // line-height:22px при font-size:18px
+    line-height: calc(22 / 18);
+    letter-spacing: -0.02em;
+
+
+    color: #2E2E2E;
+    background: #fff;
+    
+    width: $key-caption-width;
+    height: $key-caption-height;
+
+    left: 0;
+    right: 0;
+    margin:  auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // текст подписи
+    >span{
+
+    }
+}
+
+// --- ограничители размеров ---
+// +ограничители для отсупов margin/padding
+    // картинка (тег <img>)
+    .key-properties__img{
+        max-width: 365px;
+        max-height: 365px;
+        min-width: 150px;
+        min-height: 150px;
+    }
+    //подпись к картинке
+    .key-properties__img-caption{
+        max-width: 273px;
+        max-height: 52px;
+        
+        min-width: 113px;
+        min-height: 42px;
+    }
+@media screen and (min-width: 1440px){
+    //подпись к картинке
+    .key-properties__img-caption{
+        font-size: 18px;
+        line-height: 22px;
+    }
+    // контейнер для картинок-предложений
+    .key-properties__properties-box{
+        margin-top: 181px;
+        margin-left: 155px;
+        margin-right: 114px;
+    }
+    // интервал между картинками
+    .key-properties .key-properties__img-box+.key-properties__img-box{
+        margin-left: 38px;
+    }
+}
+
+// --- подгонка под макет ---
+@media screen and (min-width: 1440px){
+    // подписи к картинкам
+    .key-properties__img-caption{
+        align-items: unset;
+        justify-content: unset;
+        >span{
+            margin-top: 17px;
+        }
+    }
+    // первая картинка
+    .key-properties__img-box:first-child{
+        .key-properties__img-caption{
+            left: 50px;
+            margin: 0;
+            >span{
+                margin-left: 62px;
+            }
+        }
+    }
+    // вторая картинка
+    .key-properties__img-box:first-child{
+        +.key-properties__img-box{
+            .key-properties__img-caption{
+                left: 47px;
+                margin: 0;
+                >span{
+                    margin-left: 24px;
+                }
+            }
+        }
+    }
+    // третья картинка
+    .key-properties__img-box:last-child{
+        .key-properties__img-caption{
+            left: 42px;
+            margin: 0;
+            >span{
+                margin-left: 43px;
+            }
+        }
+    }
+}
+// стили для мобильной версии
+@media screen and (max-width: 767px){
+    // основной контейнер
+    .key-properties{
+        order: -1;
+        // position: relative;
+        // -33px при 320px, при 767px
+        // 100vw * 33/320
+        // top: calc(33px * -1);
+        transform: translate(0, calc( (100vw * 33 / 320) * -1));
+    }
+    .key-properties__properties-box{
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+    // убираем интервал между картинками
+    .key-properties{
+        .key-properties__img-box+.key-properties__img-box{
+            margin-left: auto;
+        }
+    }
+    .key-properties__img-box{
+        margin: auto;
+    }
+    // размеры картинок
+    .key-properties__img{
+        width: calc(100vw * (150 / 320) );
+        height: calc(100vw * (150 / 320) );
+    }    
+    // размеры подписей к картинкам
+    //подпись к картинке
+    .key-properties__img-caption{
+        height: calc(100vw * (44 / 320) );
+        width: calc(100vw * (113 / 320) );
+        
+        // менять шрифты от 18 до 12
+        font-size: calc( 100vw * (6 / 447) + (3444px / 447) );
+        // меняем line-height:1.2
+        line-height: 1.2;
+
+        transform: translate(0, 50%);
+
+            // текст подписи
+            >span{
+                flex-basis: 0;
+            }        
+    }
+    // вертикальные отступы между картинками
+    .key-properties__img-box:nth-child(1){ // первая картинка 
+        margin-bottom: calc(100vw * 49 / 320);
+    }
+    .key-properties__img-box:nth-child(2){ // вторая картинка
+        margin-bottom: calc(100vw * 46 / 320);
+    }
+
+}
+@media screen and (max-width: 320px){
+    // основной контейнер
+    .key-properties{
+        transform: translate(0, -33px);
+    }
+    //подпись к картинке
+    .key-properties__img-caption{
+        height: 44px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+    // вертикальные отступы между картинками
+    .key-properties__img-box:nth-child(1){ // первая картинка 
+        margin-bottom: 49px;
+    }
+    .key-properties__img-box:nth-child(2){ // вторая картинка
+        margin-bottom: 46px;
+    }
+
+    // ----- Подгонта под макет -----
+    .key-properties__img-caption{
+        transform: translate(0, calc(50% + 1px));
+    }
+
+}

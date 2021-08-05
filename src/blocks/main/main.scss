@@ -1,0 +1,10 @@
+.main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+@import "./gallery/gallery.scss";
+@import "./key-properties/key-properties.scss";
+@import "./map/map.scss";
+@import "./slider/slider.scss";
+@import "./steps/steps.scss";

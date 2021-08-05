@@ -1,0 +1,51 @@
+.map{
+
+}
+ 
+.map__map-container{
+    margin-top: calc(100vw * (126 / 1440) );
+}
+.map-container{
+    display: flex;
+
+    max-width: 1440px;
+    max-height: 600px;
+
+    width: 100%;
+    height: calc( 100vw * (600 / 1440) );
+
+}
+
+// ----- Ограничители -----
+@media screen and (min-width: 1440px){
+    .map-container{
+        max-width: 1440px;
+        max-height: 600px;
+    }
+    .map-container{
+        margin-top: 126px;
+    }
+}
+
+// стили для мобильной версии
+@media screen and (max-width: 767px){
+    .map-container{
+        
+        margin-top: calc(100vw * (52 / 320) );
+        margin-right: calc(100vw * (31 / 320) );
+        margin-bottom: calc( 100vw * (42 / 320) );
+        margin-left: calc( 100vw * (27 / 320) );
+
+        width: calc(100vw * (262 / 320) );
+        height: calc(100vw * (264/320) );
+
+        min-width: 262px;
+        min-height: 264px;
+    }
+}
+@media screen and (max-width: 320px){
+    .map-container{
+        margin: 52px 31px 42px 27px;
+    }
+
+}
