@@ -12,4 +12,4 @@
 - запуск webpack-dev-server: npm run start
 - собрать build: npm run build
 
-Ссылка на страницу: http://landsale.hostronavt.ru/
+Ссылка на страницу: https://createhomestead.ru/
